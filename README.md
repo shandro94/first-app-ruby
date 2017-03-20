@@ -1,2 +1,2 @@
-# new-repositiry-1
+# FIRST TEST REPOSITORY
 test repository for github learning
