@@ -1,2 +1,18 @@
 <h3>Как добраться:</h3>
-Мы проживаем по адресу Ленинские горы, дом 1, к. В
+<p>Мы проживаем по адресу Ленинские горы, дом 1, корпус В.</p>
+<p>Вы можете оставить свой e-mail или номер телефона в форме ниже, чтоб мы могли с вами связаться.</p>
+
+<form action="/contacts" method="post">
+  
+  <div class="form-group">
+    <label>Your e-mail</label>
+    <input type="email" class="form-control" placeholder="Enter your name here" name="email">
+  </div>
+	
+	<textarea class="form-control" rows="5" placeholder="Message here." name="message"></textarea>
+	<br>
+  <button type="submit" class="btn btn-success" name="enroll">Enroll</button>
+
+</form>
+
+<p><%= @message %></p>

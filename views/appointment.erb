@@ -12,7 +12,7 @@
 		</tr>
 </table>
 
-<form action="/visit" method="post">
+<form action="/appointment" method="post">
   
   <div class="form-group">
     <label>Your name</label>
@@ -29,6 +29,14 @@
     <input type="text" class="form-control" placeholder="Desirable time here" name="time">
   </div>  
 
+  	<label>Select performer</label>
+	<select class="form-control" name="performer" placeholder="Select performer">
+		<option>Ilya</option>
+	</select>
+
+	<br>
   <button type="submit" class="btn btn-success" name="enroll">Enroll</button>
+
+   <p><%= @message %></p>
 
 </form>
