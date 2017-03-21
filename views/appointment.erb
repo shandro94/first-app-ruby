@@ -28,29 +28,31 @@
 		</tr>
 </table>
 
-<form action="/appointment" method="post">
+<form class="form-inline" action="/appointment" method="post">
   
-  <div class="form-group">
+
+  <div class="form-group has-success col-xs-2">
     <label>Your name</label>
     <input id="name" type="text" class="form-control" placeholder="Enter your name here" name="username">
-  </div>
-
-  <div class="form-group">
+  </div><br><br><br><br>
+  
+  <div class="form-group has-warning col-xs-2">
     <label>Your phone</label>
     <input type="text" class="form-control" placeholder="8-999-XXX-XX-XX" name="phone">
-  </div>
+  </div><br><br><br><br>
 
-  <div class="form-group">
+  <div class="form-group col-xs-2">
     <label>Desirable time to appoint</label>
     <input type="text" class="form-control" placeholder="Desirable time here" name="time">
-  </div>  
+  </div><br><br><br><br><br>
 
-  	<label>Select performer</label>
+  <div class="form-group col-xs-4">
+    <label>Select performer</label>
 	<select class="form-control" name="performer" placeholder="Select performer">
 		<option>Ilya</option>
-	</select>
+    </select>
+  </div><br><br><br>
 
-	<br>
   <button type="submit" class="btn btn-success" name="enroll">Enroll</button>
 
    <p><%= @message %></p>
