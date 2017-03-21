@@ -45,7 +45,11 @@
 </form>
 
 <script>
-$( "input" ).on( "mouseover", function() {
-  $( this ).css('background-color','lightgreen');
-});
+$( "input" )
+	.on( "mouseenter", function() {
+		$( this ).css('background-color','lightgreen');
+	})
+		.on( "mouseleave", function() {
+		$( this ).css('background-color','white',;
+	});
 </script>
