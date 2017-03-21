@@ -1,3 +1,4 @@
+//making random colors
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -7,6 +8,7 @@ function getRandomColor() {
     return color;
 }
 
+// function for rand color
 function mouseEnterLeaveActions(choosenObject, returnColor = 'white') {
 	$(choosenObject)
 	.on( "mouseenter", function() {

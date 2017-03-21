@@ -1,4 +1,17 @@
+<head>
+	
+		<!-- add string  mouseEnterLeaveActions(TAG or ID here);  -->
+	<script type="text/javascript">
 
+		$(function(){
+			mouseEnterLeaveActions("label");
+			mouseEnterLeaveActions("input");
+			mouseEnterLeaveActions("td");
+			mouseEnterLeaveActions("select");
+		});
+
+	</script>
+</head>
 
 
 <table class="table table-bordered">
@@ -43,14 +56,3 @@
    <p><%= @message %></p>
 
 </form>
-
-<script type="text/javascript">
-
-	$(function(){
-		mouseEnterLeaveActions("label");
-		mouseEnterLeaveActions("input");
-		mouseEnterLeaveActions("td");
-		mouseEnterLeaveActions("select");
-	});
-
-</script>
