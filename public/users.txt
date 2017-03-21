@@ -7,3 +7,4 @@ Name: ; Phone: 71373; Time: Always; Performer:Ilya
 Name: Katyunya; Phone: 7171; Time: Always; Performer:Ilya
 Name: Katyunya; Phone: 7171; Time: Always; Performer:Ilya
 Name: Katyushka; Phone: 571275; Time: 8:00; Performer:Ilya
+Name: Katyunchik; Phone: 86196162; Time: 7:00; Performer:Ilya

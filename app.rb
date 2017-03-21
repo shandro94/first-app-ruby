@@ -21,13 +21,19 @@ post '/appointment' do
 	@time = params[:time]
 	@performer = params[:performer]
 
-	if @username == ''
-		@error = 'Enter your name.'
-	elsif @phone == ''
-		@error = 'Enter your phone.'
-	elsif @time == ''
-		@error = 'Enter derirable time.'
-	else
+	errors = {
+		:username => 'Enter your name',
+		:phone => 'Enter your phone number',
+		:time => 'Enter desirable appoint time',
+	}
+
+	errors.each do |key,err| 
+		if params[key] == ''
+			@error = errors[key]
+		end
+	end
+
+	unless @error #if not
 		File.open './public/users.txt','a' do |file|
 			file.write "Name: #{@username}; Phone: #{@phone}; Time: #{@time}; Performer:#{@performer}\n"
 		end
