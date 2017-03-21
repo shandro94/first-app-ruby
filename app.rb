@@ -8,7 +8,6 @@ get '/' do
 end
 
 get '/about' do
-	@error = 'somthg wrong'
 	erb :about
 end
 
@@ -17,20 +16,24 @@ get '/appointment' do
 end
 
 post '/appointment' do
-	@name = params[:username]
+	@username = params[:username]
 	@phone = params[:phone]
 	@time = params[:time]
 	@performer = params[:performer]
 
-	lines = []
-	File.open './public/users.txt','a' do |file|
-		file.write "Name: #{@name}; Phone: #{@phone}; Time: #{@time}; Performer:#{@performer}\n"
+	if @username == ''
+		@error = 'Enter your name.'
+	elsif @phone == ''
+		@error = 'Enter your phone.'
+	elsif @time == ''
+		@error = 'Enter derirable time.'
+	else
+		File.open './public/users.txt','a' do |file|
+			file.write "Name: #{@username}; Phone: #{@phone}; Time: #{@time}; Performer:#{@performer}\n"
+		end
+		@message = 'Запись успешно произведена.'
 	end
-
-	@message = 'Запись успешно произведена.'
-
-	erb :appointment
-
+		erb :appointment
 end
 
 get '/contacts' do
