@@ -7,12 +7,12 @@ function getRandomColor() {
     return color;
 }
 
-function mouseEnterLeaveActions(obiect) {
-	$(obiect)
+function mouseEnterLeaveActions(choosenObject, returnColor = 'white') {
+	$(choosenObject)
 	.on( "mouseenter", function() {
-		$( this ).css('background-color',getRandomColor());
+		$( this ).css('background-color', getRandomColor());
 	})
 	.on( "mouseleave", function() {
-		$( this ).css('background-color','white');
+		$( this ).css('background-color', returnColor);
 	});
 }

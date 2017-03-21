@@ -45,11 +45,9 @@
 </form>
 
 <script>
-$( "input" )
-	.on( "mouseenter", function() {
-		$( this ).css('background-color',getRandomColor());
-	})
-	.on( "mouseleave", function() {
-		$( this ).css('background-color','white');
-	});
+
+	mouseEnterLeaveActions("label");
+	mouseEnterLeaveActions("td");
+	mouseEnterLeaveActions("select");
+	
 </script>
