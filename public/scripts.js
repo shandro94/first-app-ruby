@@ -6,3 +6,13 @@ function getRandomColor() {
     }
     return color;
 }
+
+function mouseEnterLeaveActions(obiect) {
+	$(obiect)
+	.on( "mouseenter", function() {
+		$( this ).css('background-color',getRandomColor());
+	})
+	.on( "mouseleave", function() {
+		$( this ).css('background-color','white');
+	});
+}
