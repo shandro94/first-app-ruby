@@ -27,11 +27,12 @@ post '/appointment' do
 		:time => 'Enter desirable appoint time',
 	}
 
-	errors.each do |key,err| 
-		if params[key] == ''
-			@error = errors[key]
-		end
-	end
+	@error = errors.select {|key,_| params[key]==""}.values.join("<br>")
+	#errors.each do |key,err| 
+	#	if params[key] == ''
+	#		@error = errors[key]
+	#	end
+	#end
 
 	unless @error #if not
 		File.open './public/users.txt','a' do |file|
