@@ -48,6 +48,6 @@ get '/contacts' do
 end
 
 post '/contacts' do
-	@message = "Button was pressed."
+	@message = "The message has been successfully sent."
 	erb :contacts
 end
