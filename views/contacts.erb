@@ -6,16 +6,16 @@
   
   <div class="form-group">
     <label>Your e-mail or phone number</label>
-    <input type="text" class="form-control" placeholder="Enter your name here" name="email">
+    <input type="text" class="form-control" placeholder="Enter your name here" name="email" value="<%=@email%>">
   </div>
 	
-	<textarea class="form-control" rows="5" placeholder="Message here." name="message"></textarea>
+	<textarea class="form-control" rows="5" placeholder="Message here." name="message"><%= @message %></textarea>
 	<br>
   <button type="submit" class="btn btn-success" name="enroll">Enroll</button>
 
 </form>
 
-<p><%= @message %></p>
+<p><%= @push_notification %></p>
 
 <script>
 $( "p" ).on( "mouseover", function() {

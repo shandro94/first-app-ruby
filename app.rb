@@ -48,6 +48,12 @@ get '/contacts' do
 end
 
 post '/contacts' do
-	@message = "The message has been successfully sent."
+	@push_notification = "The message has been successfully sent."
+	@email = params[:email]
+	@message = params[:message]
+
+	
+
+
 	erb :contacts
 end
