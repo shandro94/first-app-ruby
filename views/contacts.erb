@@ -1,3 +1,15 @@
+<head>
+	
+		<!-- add string  mouseEnterLeaveActions(TAG or ID here);  -->
+	<script type="text/javascript">
+
+		$(function(){
+			mouseEnterLeaveActions("p");
+		});
+
+	</script>
+</head>
+
 <h3>Как добраться:</h3>
 <p>Мы проживаем по адресу Ленинские горы, дом 1, корпус В. Здесь Вас встретят.</p>
 <p>Вы можете оставить нам сообщение, или передать свой e-mail или номер телефона в форме ниже, чтоб мы могли с вами связаться.</p>
@@ -17,8 +29,3 @@
 
 <p><%= @push_notification %></p>
 
-<script>
-$( "p" ).on( "mouseover", function() {
-  $( this ).css( "color", "red" );
-});
-</script>
