@@ -74,7 +74,7 @@ post '/contacts' do
 			     :domain               => "localhost.localdomain" 
 			     }
 		    })
-		@push_notification = 'The message has been sent successfully.'
+		@push_notification = 'The message has hi been sent successfully.'
 	end
 		
 	erb :contacts
