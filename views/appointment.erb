@@ -49,7 +49,8 @@
   <div class="form-group col-xs-4">
     <label>Select performer: </label>
 	<select class="form-control" name="performer" placeholder="Select performer">
-		<option>Ilya</option>
+		<option <%= @performer == 'Ilya' ? 'selected' : '' %> >Ilya</option>
+		<option <%= @performer == 'Ilufffqa' ? 'selected' : '' %> >Ilufffqa</option>
     </select>
   </div><br><br><br>
 
