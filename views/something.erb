@@ -1,0 +1,24 @@
+<head>
+
+
+	<!-- functions here -->
+	<script>
+		$(function(){
+			$(document).on("click", ".alert", function(e) {
+				bootbox.alert("Hello world!", function() {
+					console.log("Alert Callback");
+				});
+			});
+			mouseEnterLeaveActions("#text1");
+		});
+	</script>
+
+</head>
+
+<body>
+	
+
+	<p>Content here. <a id="text1" class="alert" href=#>Alert!</a></p>
+
+
+</body>
