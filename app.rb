@@ -6,16 +6,15 @@ require 'pony'
 require 'sqlite3'
 
 configure do
-	@db = SQLite3::Database.new 'barbershop.sqlite'
-	@db.execute 'CREATE TABLE IF NOT EXISTS
-		"Users" (
-			"ID" INTEGER PRIMARY KEY AUTOINCREMENT, 
-			"Name" TEXT, 
-			"Phone" TEXT, 
-			"DateStamp" TEXT, 
-			"Barber" TEXT, 
-			"Color" TEXT
-			)'
+	db = get_db
+	db.execute 'CREATE TABLE IF NOT EXISTS 
+					"Users" (
+					"ID" INTEGER PRIMARY KEY AUTOINCREMENT, 
+					"Username" TEXT, 
+					"Phone" TEXT, 
+					"DateStamp" TEXT, 
+					"Performer" TEXT
+					)'
 end
 
 get '/' do
@@ -45,9 +44,12 @@ post '/appointment' do
 	@error = errors.select {|key,_| params[key]==""}.values.join("<br>")
 
 	if @error == '' #if not
-		File.open './public/users.txt','a' do |file|
-			file.write "Name: #{@username}; Phone: #{@phone}; Time: #{@time}; Performer:#{@performer}\n"
-		end
+		db = get_db
+		db.execute 'insert into users (username, phone, datestamp, performer) 
+		values (?,?,?,?)', [@username,@phone,@time,@performer]
+#		File.open './public/users.txt','a' do |file|
+#			file.write "Name: #{@username}; Phone: #{@phone}; Time: #{@time}; Performer:#{@performer}\n"
+#	end
 		@message = 'Запись успешно произведена.'
 	end
 		erb :appointment
@@ -92,4 +94,8 @@ post '/contacts' do
 		
 	erb :contacts
 
+end
+
+def get_db
+	return SQLite3::Database.new 'ilyaroom.sqlite'
 end
