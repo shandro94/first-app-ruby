@@ -5,6 +5,12 @@ require 'sinatra/reloader' if development?
 require 'pony'
 require 'sqlite3'
 
+def get_db
+	db = SQLite3::Database.new 'ilyaroom.sqlite'
+	db.results_as_hash
+	return db
+end
+
 configure do
 	db = get_db
 	db.execute 'CREATE TABLE IF NOT EXISTS 
@@ -100,6 +106,15 @@ post '/contacts' do
 
 end
 
+get '/showusers' do
+
+	@db = get_db
+	
+	erb :showusers
+end
+
 def get_db
-	return SQLite3::Database.new 'ilyaroom.sqlite'
+	db = SQLite3::Database.new 'ilyaroom.sqlite'
+	db.results_as_hash
+	return db
 end
