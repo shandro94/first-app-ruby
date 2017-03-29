@@ -1,0 +1,6 @@
+<body>
+	<% @db.execute 'select * from Users' do |row| %>
+		<% print "#{row['Phone']}" %>
+		<%= print "kek <br>" %>
+	<% end %>
+</body>
