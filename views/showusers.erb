@@ -1,6 +1,36 @@
+<head>
+	<script type="text/javascript">
+
+		$(function(){
+			mouseEnterLeaveActions("td");
+		});
+
+	</script>
+</head>
+
 <body>
-	<% @db.execute 'select * from Users' do |row| %>
-		<% print "#{row['Phone']}" %>
-		<%= print "kek <br>" %>
-	<% end %>
+
+	<table class="table table-bordered">
+		<head>
+			<tr> 
+				<td>#</td>
+				<td>Name</td>
+				<td>Phone</td>
+				<td>Time</td>
+				<td>Performer</td>
+			</tr>
+		</head>
+		<% @results.each do |row| %>	
+			<tr>
+				<td> <%=row['ID'] %> </td>
+				<td> <%=row['Username'] %> </td>
+				<td> <%=row['Phone'] %> </td>
+				<td> <%=row['DateStamp'] %> </td>
+				<td> <%=row['Performer'] %> </td>
+			</tr>
+		<% end %>
+		
+	</table>
+
+
 </body>

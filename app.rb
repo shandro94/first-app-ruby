@@ -7,7 +7,7 @@ require 'sqlite3'
 
 def get_db
 	db = SQLite3::Database.new 'ilyaroom.sqlite'
-	db.results_as_hash
+	db.results_as_hash = true
 	return db
 end
 
@@ -108,13 +108,8 @@ end
 
 get '/showusers' do
 
-	@db = get_db
-	
-	erb :showusers
-end
+	db = get_db
+	@results = db.execute 'select * from Users order by id desc'
 
-def get_db
-	db = SQLite3::Database.new 'ilyaroom.sqlite'
-	db.results_as_hash
-	return db
+	erb :showusers
 end
