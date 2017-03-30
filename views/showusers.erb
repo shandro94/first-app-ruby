@@ -11,15 +11,15 @@
 <body>
 
 	<table class="table table-bordered">
-		<head>
+		<thead>
 			<tr> 
-				<td>#</td>
-				<td>Name</td>
-				<td>Phone</td>
-				<td>Time</td>
-				<td>Performer</td>
+				<th>#</th>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>Time</th>
+				<th>Performer</th>
 			</tr>
-		</head>
+		</thead>
 		<% @results.each do |row| %>	
 			<tr>
 				<td> <%=row['ID'] %> </td>
