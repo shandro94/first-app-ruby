@@ -2,9 +2,33 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader' if development?
+require 'pony'
+require 'sqlite3'
+
+def get_db
+	db = SQLite3::Database.new 'ilyaroom.sqlite'
+	db.results_as_hash = true
+	return db
+end
+
+configure do
+	db = get_db
+	db.execute 'CREATE TABLE IF NOT EXISTS 
+					"Users" (
+					"ID" INTEGER PRIMARY KEY AUTOINCREMENT, 
+					"Username" TEXT, 
+					"Phone" TEXT, 
+					"DateStamp" TEXT, 
+					"Performer" TEXT
+					)'
+end
 
 get '/' do
 	erb "Hello, <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"			
+end
+
+get '/something' do
+	erb :something
 end
 
 get '/about' do
@@ -28,16 +52,14 @@ post '/appointment' do
 	}
 
 	@error = errors.select {|key,_| params[key]==""}.values.join("<br>")
-	#errors.each do |key,err| 
-	#	if params[key] == ''
-	#		@error = errors[key]
-	#	end
-	#end
 
-	unless @error #if not
-		File.open './public/users.txt','a' do |file|
-			file.write "Name: #{@username}; Phone: #{@phone}; Time: #{@time}; Performer:#{@performer}\n"
-		end
+	if @error == '' #if not
+		db = get_db
+		db.execute 'insert into users (username, phone, datestamp, performer) 
+		values (?,?,?,?)', [@username,@phone,@time,@performer]
+#		File.open './public/users.txt','a' do |file|
+#			file.write "Name: #{@username}; Phone: #{@phone}; Time: #{@time}; Performer:#{@performer}\n"
+#	end
 		@message = 'Запись успешно произведена.'
 	end
 		erb :appointment
@@ -48,12 +70,46 @@ get '/contacts' do
 end
 
 post '/contacts' do
-	@push_notification = "The message has been successfully sent."
-	@email = params[:email]
+	
+	@nickname = params[:nickname]
 	@message = params[:message]
 
-	
+	errors = {
+		:nickname => 'Enter your name',
+		:message => 'Enter your message',
+	}
 
 
+	@error = errors.select {|key,_| params[key]==""}.values.join("<br>")
+
+	if @error == '' #if not
+		Pony.mail({
+				:to => 'TO_EMAIL',
+				:subject => @nickname + " has contacted you via the Website",
+				:body => @message,
+			    :via => :smtp,
+			    :from => "Site/contacts/#{@nickname} <FROM_EMAIL>",
+			    :via_options => {
+			     :address              => 'smtp.mail.ru',
+			     :port                 => '587',
+			     :enable_starttls_auto => true,
+			     :user_name            => 'FROM_EMAIL',
+			     :password             => 'FROM_PASSWORD',
+			     :authentication       => :plain, 
+			     :domain               => "localhost.localdomain" 
+			     }
+		    })
+		@push_notification = 'The message has hi been sent successfully.'
+	end
+		
 	erb :contacts
+
+end
+
+get '/showusers' do
+
+	db = get_db
+	@results = db.execute 'select * from Users order by id'
+
+	erb :showusers
 end

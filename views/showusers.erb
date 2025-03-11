@@ -1,0 +1,36 @@
+<head>
+	<script type="text/javascript">
+
+		$(function(){
+			mouseEnterLeaveActions("td");
+		});
+
+	</script>
+</head>
+
+<body>
+
+	<table class="table table-bordered">
+		<thead>
+			<tr> 
+				<th>#</th>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>Time</th>
+				<th>Performer</th>
+			</tr>
+		</thead>
+		<% @results.each do |row| %>	
+			<tr>
+				<td> <%=row['ID'] %> </td>
+				<td> <%=row['Username'] %> </td>
+				<td> <%=row['Phone'] %> </td>
+				<td> <%=row['DateStamp'] %> </td>
+				<td> <%=row['Performer'] %> </td>
+			</tr>
+		<% end %>
+		
+	</table>
+
+
+</body>

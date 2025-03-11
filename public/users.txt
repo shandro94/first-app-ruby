@@ -1,10 +1,11 @@
-#1: Name: Katyashenka; Phone: 1261261; Time15:20 Wednesday
-Name: Katya; Phone: 186186; Time: Thuesday 21:00
+#1: Name: ashenka; Phone: 1261261; Time15:20 Wednesday
+Name: a; Phone: 186186; Time: Thuesday 21:00
 Name: ; Phone: 1617616; Time: Always; Performer:Ilya
 Name: ; Phone: 1617616; Time: Always; Performer:Ilya
 Name: ; Phone: 1678; Time: Always; Performer:Ilya
 Name: ; Phone: 71373; Time: Always; Performer:Ilya
-Name: Katyunya; Phone: 7171; Time: Always; Performer:Ilya
-Name: Katyunya; Phone: 7171; Time: Always; Performer:Ilya
-Name: Katyushka; Phone: 571275; Time: 8:00; Performer:Ilya
-Name: Katyunchik; Phone: 86196162; Time: 7:00; Performer:Ilya
+Name: unya; Phone: 7171; Time: Always; Performer:Ilya
+Name: unya; Phone: 7171; Time: Always; Performer:Ilya
+Name: ushka; Phone: 571275; Time: 8:00; Performer:Ilya
+Name: unchik; Phone: 86196162; Time: 7:00; Performer:Ilya
+Name: ushqa; Phone: 915982581; Time: 1232143; Performer:Ilya
